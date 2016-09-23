@@ -1020,10 +1020,20 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         var one_stops = document.getElementById('one_stops');
         one_stops.style.visibility = 'visible';
         
-       var filter = document.getElementById('o1'); 
-       filter.checked = false;
-       filter = document.getElementById('o2'); 
-       filter.checked = false;
+        var filter = document.getElementById('o1'); 
+        filter.checked = false;
+        filter = document.getElementById('o2'); 
+        filter.checked = false;
+       
+        filter = document.getElementById('r1'); 
+        filter.checked = false;
+        filter = document.getElementById('r2'); 
+        filter.checked = false;
+       
+        filter = document.getElementById('s1'); 
+        filter.checked = false;
+        filter = document.getElementById('s2'); 
+        filter.checked = false;
         
       });
     }
@@ -1203,6 +1213,21 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
     document.getElementById('operators').options.length = 0;
     document.getElementById('routes').options.length = 0;
     document.getElementById('stops').options.length = 0;
+    
+    var filter = document.getElementById('o1'); 
+    filter.checked = false;
+    filter = document.getElementById('o2'); 
+    filter.checked = false;
+   
+    filter = document.getElementById('r1'); 
+    filter.checked = false;
+    filter = document.getElementById('r2'); 
+    filter.checked = false;
+   
+    filter = document.getElementById('s1'); 
+    filter.checked = false;
+    filter = document.getElementById('s2'); 
+    filter.checked = false;
     
   }
 
