@@ -204,7 +204,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
   $scope.route_instructions = '';
 
   var Locations = [];
-  var mode = 'truck';
+  var mode = 'transit';
 
   var icon = L.icon({
     iconUrl : 'resource/via_dot.png',
