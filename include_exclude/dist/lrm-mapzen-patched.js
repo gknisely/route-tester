@@ -2488,9 +2488,12 @@ if (typeof module !== undefined) module.exports = polyline;
         for(var j = 0; j < legs[i].maneuvers.length; j++){
 
           var res = legs[i].maneuvers[j];          
-          if(res.transit_info)
-            transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
-
+          if(res.transit_info) {
+          	for(var k = 0; k < res.transit_info.transit_stops.length; k++){
+          	  var stop = res.transit_info.transit_stops[k];
+              transitData.push({stop_onestop_id: stop.onestop_id})
+            }
+	      }
         }
       }
       return transitData;
