@@ -979,11 +979,16 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
 
       include_exclude_btn.addEventListener('click', function(e) {
         if (!rr) return;
-        var elev = (typeof rr._routes[0] != "undefined") ? rr._routes[0] : 0;
-        alert(elev);
-        //elev.resetChart();
-        //elev.profile(elev._rrshape);
-        //document.getElementById('graph').style.display = "block";
+        var transitData = (typeof rr._routes[0] != "undefined") ? rr._routes[0].transitData : 0;
+        
+        var select = document.getElementById('operators');
+        for(var x = select.options.length - 1 ; x >= 0 ; x--) {
+          select.remove(x);
+        }
+        
+        for(var y = 0; y < transitData.length; y++)
+          select.add(transitData[y].stop_onestop_id);
+        
       });
     }
 
