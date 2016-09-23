@@ -1108,7 +1108,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         "transit" : {
           "filters" : { 
           "stops" : { 
-          ids : [ids.join('","')],
+          ids : [ids],
           action : s_filter
         }}}
       };
