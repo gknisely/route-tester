@@ -981,12 +981,9 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         if (!rr) return;
         var transitData = (typeof rr._routes[0] != "undefined") ? rr._routes[0].transitData : 0;
         
-        var select = document.getElementById('operators');
-        
-        for(var x = select.options.length - 1 ; x >= 0 ; x--) {
-          select.remove(x);
-        }
-        
+        var select = document.getElementById('operators'); 
+        select.options.length = 0;
+       
         for(var y = 0; y < transitData.length; y++) {
           if (transitData[y].operator_onestop_id) {
             var option = document.createElement("option");
@@ -997,10 +994,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         }
         select.selectedIndex = -1;        
         select = document.getElementById('routes');
-        
-        for(var x = select.options.length - 1 ; x >= 0 ; x--) {
-          select.remove(x);
-        }
+        select.options.length = 0;
         
         for(var y = 0; y < transitData.length; y++) {
           if (transitData[y].route_onestop_id) {
@@ -1012,10 +1006,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         }
         select.selectedIndex = -1;        
         select = document.getElementById('stops');
-        
-        for(var x = select.options.length - 1 ; x >= 0 ; x--) {
-          select.remove(x);
-        }
+        select.options.length = 0;
         
         for(var y = 0; y < transitData.length; y++) {
           if (transitData[y].stop_onestop_id) {
@@ -1207,6 +1198,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
     document.getElementById('operators').options.length = 0;
     document.getElementById('routes').options.length = 0;
     document.getElementById('stops').options.length = 0;
+    document.getElementById('one_stops').style.visibility = 'hidden';
     
   }
 
