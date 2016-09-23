@@ -1020,9 +1020,10 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         var one_stops = document.getElementById('one_stops');
         one_stops.style.visibility = 'visible';
         
-       var filter = document.getElementsByTagName('operator_filter'); 
-       filter[0].checked = false;
-       filter[1].checked = false;
+       var filter = document.getElementById('o1'); 
+       filter.checked = false;
+       filter = document.getElementById('o2'); 
+       filter.checked = false;
         
       });
     }
