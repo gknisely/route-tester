@@ -1090,9 +1090,9 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
       
       var ids = "";
       var count = 0;
-      if (op_filter != "nada") {
+      if (s_filter != "nada") {
       	
-	      var x=document.getElementById("operators");
+	      var x=document.getElementById("stops");
 	      for (var i = 0; i < x.options.length; i++) {
 	         if (x.options[i].selected ==true){
 	           if (count == 0) {
@@ -1107,17 +1107,15 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
 	      }
       }
       
-      alert(ids);
-
 //"transit":{"filters":{"operators":{"ids":["o-dr5r-path"],"action":"none"}}}
       var transitoptions = "";
       if (count != 0) {
       transitoptions = {
         "transit" : {
           "filters" : { 
-          "operators" : { 
+          "stops" : { 
           ids :[ids],
-          action : op_filter
+          action : s_filter
         }}}
       };
       }
