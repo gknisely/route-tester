@@ -2440,7 +2440,7 @@ if (typeof module !== undefined) module.exports = polyline;
           var res = legs[i].maneuvers[j];
           var travelType = res.travel_type;
           
-          if(res.transit_info) subRoute.push({test: travelType})
+         // if(res.transit_info) subRoute.push({test: travelType})
 
           if(travelType !== lastTravelType || res.type === 31 /*this is for transfer*/) {
             //transit_info only exists in the transit maneuvers
