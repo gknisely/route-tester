@@ -1223,7 +1223,6 @@ if (typeof module !== undefined) module.exports = polyline;
 			    instr,
 			    verbal_pre,
 			    verbal_post,
-			    operator_ids,
 			    arrive_instr,
 			    verbal_arrive,
 			    icon;
@@ -1239,12 +1238,11 @@ if (typeof module !== undefined) module.exports = polyline;
 			        verbal_depart = (typeof instr.verbal_depart_instruction != "undefined" ?  "VERBAL_DEPART: " + instr.verbal_depart_instruction : "");
 			        verbal_pre =  (typeof instr.verbal_pre_transition_instruction != "undefined" ? "VERBAL_PRE: " + instr.verbal_pre_transition_instruction : "");
 			        verbal_post = (typeof instr.verbal_post_transition_instruction != "undefined" ? "VERBAL_POST: " + instr.verbal_post_transition_instruction : "");
-			        operator_ids = (typeof instr.transit_info.operator_onestop_id != "undefined" ? instr.transit_info.operator_onestop_id : "");
 			        arrive_instr = (typeof instr.arrive_instruction != "undefined" ? instr.arrive_instruction : "");
 			        verbal_arrive = (typeof instr.verbal_arrive_instruction != "undefined" ?  "VERBAL_ARRIVE: " + instr.verbal_arrive_instruction : "");
 			        distance = this._formatter.formatDistance(instr.distance);
 			        icon = this._formatter.getIconName(instr, i);
-			        step = this._itineraryBuilder.createStep(text, verbal_alert, depart_instr, verbal_depart, verbal_pre, verbal_post, operator_ids, arrive_instr, verbal_arrive, distance, icon, steps);
+			        step = this._itineraryBuilder.createStep(text, verbal_alert, depart_instr, verbal_depart, verbal_pre, verbal_post, arrive_instr, verbal_arrive, distance, icon, steps);
 			        this._addRowListeners(step, r.coordinates[instr.index]);
 			}
 
@@ -1357,7 +1355,7 @@ if (typeof module !== undefined) module.exports = polyline;
 			return L.DomUtil.create('tbody', '');
 		},
 
-		createStep: function(text, verbal_alert, depart_instr, verbal_depart, verbal_pre, verbal_post, operator_ids, arrive_instr, verbal_arrive, distance, icon, steps) {
+		createStep: function(text, verbal_alert, depart_instr, verbal_depart, verbal_pre, verbal_post, arrive_instr, verbal_arrive, distance, icon, steps) {
 		      var row = L.DomUtil.create('tr', '', steps),
 		        span,
 		        td,
@@ -1381,9 +1379,6 @@ if (typeof module !== undefined) module.exports = polyline;
 		        td.appendChild(ul);
 		        ul = L.DomUtil.create('ul', 'verbal_post', row);
 		        ul.appendChild(document.createTextNode(verbal_post));
-		        td.appendChild(ul);
-		        ul = L.DomUtil.create('ul', 'operator_ids', row);
-		        ul.appendChild(document.createTextNode(operator_ids));
 		        td.appendChild(ul);
 		        ul = L.DomUtil.create('ul', 'arrive_instr', row);
 		        ul.appendChild(document.createTextNode(arrive_instr));
@@ -2444,6 +2439,9 @@ if (typeof module !== undefined) module.exports = polyline;
 
           var res = legs[i].maneuvers[j];
           var travelType = res.travel_type;
+          
+          if(res.transit_info)
+            subRoute.push({operator_onestop_id: res.transit_info.operator_onestop_id})
 
           if(travelType !== lastTravelType || res.type === 31 /*this is for transfer*/) {
             //transit_info only exists in the transit maneuvers
