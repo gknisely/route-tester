@@ -960,17 +960,30 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
     
     if (document.getElementById('elevation_btn') != undefined) {
       elevationBtn = document.getElementById("elevation_btn");
-      
+
       elevationBtn.addEventListener('click', function(e) {
         if (!rr) return;
         if (environmentExists) 
           selectEnv();
         else getEnvToken();
-        
+
         var elev = (typeof rr._routes[0] != "undefined") ? L.elevation(elevToken, rr._router._rrshape) : 0;
         elev.resetChart();
         elev.profile(elev._rrshape);
         document.getElementById('graph').style.display = "block";
+      });
+    }
+
+    if (document.getElementById('include_exclude_btn') != undefined) {
+      include_exclude_btn = document.getElementById("include_exclude_btn");
+
+      include_exclude_btn.addEventListener('click', function(e) {
+        if (!rr) return;
+        var elev = (typeof rr._routes[0] != "undefined") ? rr._routes[0] : 0;
+        alert(elev);
+        //elev.resetChart();
+        //elev.profile(elev._rrshape);
+        //document.getElementById('graph').style.display = "block";
       });
     }
 
