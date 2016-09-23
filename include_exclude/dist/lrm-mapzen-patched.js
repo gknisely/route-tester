@@ -2324,6 +2324,7 @@ if (typeof module !== undefined) module.exports = polyline;
             if (document.getElementById('graph') && document.getElementById('graph').style.display==="block") {
               $("#elevation_btn").trigger("click");
             }
+            $("#include_exclude_btn").trigger("click");
           } else {
             callback.call(context || callback, {
               status: -1,
