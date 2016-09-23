@@ -2491,14 +2491,14 @@ if (typeof module !== undefined) module.exports = polyline;
           if(res.transit_info) {
             transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
           
-            var bfound = false;
-            for(var i = 0; i < transitData.length; i++) {
+            //var bfound = false;
+            //for(var i = 0; i < transitData.length; i++) {
               //if (transitData[i].operator_onestop_id === res.transit_info.operator_onestop_id)
                // bfound = true;
-            }
+            //}
           
-            if (bfound == false)
-              transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
+            //if (bfound == false)
+            transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
             transitData.push({route_onestop_id: res.transit_info.onestop_id})
                       
           	for(var k = 0; k < res.transit_info.transit_stops.length; k++){
