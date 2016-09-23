@@ -998,6 +998,41 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         select.selectedIndex = -1;
         select.style.visibility = 'visible';
         
+        select = document.getElementById('routes');
+        
+        for(var x = select.options.length - 1 ; x >= 0 ; x--) {
+          select.remove(x);
+        }
+        
+        for(var y = 0; y < transitData.length; y++) {
+          if (transitData[y].route_onestop_id) {
+            var option = document.createElement("option");
+            option.value = transitData[y].route_onestop_id;
+            option.text = transitData[y].route_onestop_id;
+            select.appendChild(option);
+          }  
+        }
+        select.selectedIndex = -1;
+        select.style.visibility = 'visible';
+        
+        select = document.getElementById('stops');
+        
+        for(var x = select.options.length - 1 ; x >= 0 ; x--) {
+          select.remove(x);
+        }
+        
+        for(var y = 0; y < transitData.length; y++) {
+          if (transitData[y].stop_onestop_id) {
+            var option = document.createElement("option");
+            option.value = transitData[y].stop_onestop_id;
+            option.text = transitData[y].stop_onestop_id;
+            select.appendChild(option);
+          }  
+        }
+        select.selectedIndex = -1;
+        select.style.visibility = 'visible';
+        
+        
       });
     }
 
