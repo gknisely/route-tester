@@ -2479,13 +2479,6 @@ if (typeof module !== undefined) module.exports = polyline;
       return subRoute;
     },
 
-    _arraySearch: function(arr,val) {
-      for (var i=0; i<arr.length; i++)
-        if (arr[i] === val)                    
-          return true;
-      return false;
-    },
-
     _getTransitData: function(legs) {
 
       var transitData = [];
@@ -2498,9 +2491,13 @@ if (typeof module !== undefined) module.exports = polyline;
           if(res.transit_info) {
             transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
           
-            var a = transitData.indexOf({operator_onestop_id: res.transit_info.operator_onestop_id});
+            var bfound = false;
+            for(var i = 0; i < transitData.length; i++) {
+              if (transitData[i].operator_onestop_id == res.transit_info.operator_onestop_id)
+                bfound = true;
+            }
           
-            if (a == -1)
+            if (bfound == false)
               transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
             transitData.push({route_onestop_id: res.transit_info.onestop_id})
                       
