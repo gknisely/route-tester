@@ -987,7 +987,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         }
         
         for(var y = 0; y < transitData.length; y++)
-          select.add(transitData[y].stop_onestop_id);
+          alert(transitData[y].stop_onestop_id);
         
       });
     }
