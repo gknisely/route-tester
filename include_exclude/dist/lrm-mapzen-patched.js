@@ -1244,7 +1244,7 @@ if (typeof module !== undefined) module.exports = polyline;
 			        verbal_arrive = (typeof instr.verbal_arrive_instruction != "undefined" ?  "VERBAL_ARRIVE: " + instr.verbal_arrive_instruction : "");
 			        distance = this._formatter.formatDistance(instr.distance);
 			        icon = this._formatter.getIconName(instr, i);
-			        step = this._itineraryBuilder.createStep(text, verbal_alert, depart_instr, verbal_depart, verbal_pre, verbal_post, arrive_instr, verbal_arrive, distance, icon, steps);
+			        step = this._itineraryBuilder.createStep(text, verbal_alert, depart_instr, verbal_depart, verbal_pre, verbal_post, operator_ids, arrive_instr, verbal_arrive, distance, icon, steps);
 			        this._addRowListeners(step, r.coordinates[instr.index]);
 			}
 
