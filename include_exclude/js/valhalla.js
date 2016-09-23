@@ -986,8 +986,10 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
           select.remove(x);
         }
         
-        for(var y = 0; y < transitData.length; y++)
-          alert(transitData[y].stop_onestop_id);
+        for(var y = 0; y < transitData.length; y++) {
+          if (transitData[y].operator_onestop_id)
+            select.add(transitData[y].operator_onestop_id);
+        }
         
       });
     }
