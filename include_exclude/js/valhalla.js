@@ -1021,8 +1021,8 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         one_stops.style.visibility = 'visible';
         
        var filter = document.getElementsByTagName('operator_filter'); 
-       filter.checked = false;
-       //filter[1].checked = false;
+       filter[0].checked = false;
+       filter[1].checked = false;
         
       });
     }
