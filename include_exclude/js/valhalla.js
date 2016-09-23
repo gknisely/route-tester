@@ -1123,6 +1123,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
           value : dateStr.toString()
         };
       }
+      alert(datetimeoptions);
       return datetimeoptions;
     }
 
