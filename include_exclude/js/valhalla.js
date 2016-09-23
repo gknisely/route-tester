@@ -1088,19 +1088,14 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         }
       }
       
-      var ids = "";
+      var ids = [];
       var count = 0;
       if (s_filter != "nada") {
       	
 	      var x=document.getElementById("stops");
 	      for (var i = 0; i < x.options.length; i++) {
 	         if (x.options[i].selected ==true){
-	           if (count == 0) {
-	             ids = ids.concat(x.options[i].value);
-	           }
-	           else {
-	             ids = ids.concat(",",x.options[i].value);
-	           }
+	           ids[count] = x.options[i].value;
 	           count++;
 	         }
 	      }
@@ -1113,7 +1108,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         "transit" : {
           "filters" : { 
           "stops" : { 
-          ids :[ids],
+          ids : [ids.join('","')],
           action : s_filter
         }}}
       };
