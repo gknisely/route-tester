@@ -995,6 +995,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
             select.appendChild(option);
           }  
         }
+        select.selectedIndex = -1;
         select.style.visibility = 'visible';
         
       });
