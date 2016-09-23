@@ -1020,6 +1020,10 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         var one_stops = document.getElementById('one_stops');
         one_stops.style.visibility = 'visible';
         
+        document.getElementById('operator_filter').[0].checked = false;
+        document.getElementById('operator_filter').[1].checked = false;
+        
+        
       });
     }
 
@@ -1198,7 +1202,6 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
     document.getElementById('operators').options.length = 0;
     document.getElementById('routes').options.length = 0;
     document.getElementById('stops').options.length = 0;
-    document.getElementById('one_stops').style.visibility = 'hidden';
     
   }
 
