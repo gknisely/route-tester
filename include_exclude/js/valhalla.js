@@ -987,8 +987,12 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         }
         
         for(var y = 0; y < transitData.length; y++) {
-          if (transitData[y].operator_onestop_id)
-            select.add(transitData[y].operator_onestop_id);
+          if (transitData[y].operator_onestop_id) {
+            var option = document.createElement("option");
+            option.value = transitData[y].operator_onestop_id;
+            option.text = transitData[y].operator_onestop_id;
+            select.appendChild(option);
+          }  
         }
         
       });
