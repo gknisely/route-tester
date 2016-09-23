@@ -118,12 +118,16 @@
       var subRoutes;
       if(this._costing == 'multimodal') subRoutes = this._getSubRoutes(response.trip.legs)
 
+      var transitData;
+      if(routeOptions.costing == 'multimodal') transitData = this._getTransitData(response.trip.legs)
+
       alts = [{
         name: this._trimLocationKey(inputWaypoints[0].latLng) + " , " + this._trimLocationKey(inputWaypoints[1].latLng) ,
         unit: response.trip.units,
         costing: this._costing,
         coordinates: coordinates,
         subRoutes: subRoutes,
+        transitData: transitData,
         instructions: insts,//response.route_instructions ? this._convertInstructions(response.route_instructions) : [],
         summary: response.trip.summary ? this._convertSummary(response.trip.summary) : [],
         inputWaypoints: inputWaypoints,
@@ -176,10 +180,7 @@
 
           var res = legs[i].maneuvers[j];
           var travelType = res.travel_type;
-
-          if(res.transit_info)
-            subRoute.push({operator_onestop_id: res.transit_info.operator_onestop_id})
-
+          
           if(travelType !== lastTravelType || res.type === 31 /*this is for transfer*/) {
             //transit_info only exists in the transit maneuvers
             //loop thru maneuvers and populate indices array with begin shape index
@@ -213,6 +214,23 @@
         }
       }
       return subRoute;
+    },
+
+    _getTransitData: function(legs) {
+
+      var transitData = [];
+
+      for (var i = 0; i < legs.length; i++) {
+
+        for(var j = 0; j < legs[i].maneuvers.length; j++){
+
+          var res = legs[i].maneuvers[j];          
+          if(res.transit_info)
+            transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
+
+        }
+      }
+      return transitData;
     },
 
     _getPolylineColor: function(intColor) {
