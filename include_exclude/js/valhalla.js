@@ -1020,6 +1020,10 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         var one_stops = document.getElementById('one_stops');
         one_stops.style.visibility = 'visible';
         
+        var filter = document.getElementById('operator_filter'); 
+        filter[0].checked = false;
+        filter[1].checked = false;
+        
       });
     }
 
