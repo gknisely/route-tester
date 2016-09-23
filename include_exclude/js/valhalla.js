@@ -908,8 +908,9 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
           dateStr = datetimeUpdate(calInput);
           dtoptions = setDateTime(dateStr);    
         }
-        if (document.getElementById('transitoptions').style.display == "block") {
-          var transitoptions = setTransitOptions();
+        //if (document.getElementById('transitoptions').style.display == "block") {
+        var transitoptions = setTransitOptions();
+        if (transitoptions) {
           rr.route({
             costing : costing,
             costing_options : transitoptions,
@@ -1109,9 +1110,9 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
       
 
 //"transit":{"filters":{"operators":{"ids":["o-dr5r-path"],"action":"none"}}}
-
+      var transitoptions = "";
       if (count != 0) {
-      var transitoptions = {
+      transitoptions = {
         "transit" : {
           "filters" : { 
           "operators" : { 
