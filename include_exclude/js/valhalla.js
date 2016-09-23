@@ -982,6 +982,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         var transitData = (typeof rr._routes[0] != "undefined") ? rr._routes[0].transitData : 0;
         
         var select = document.getElementById('operators');
+        
         for(var x = select.options.length - 1 ; x >= 0 ; x--) {
           select.remove(x);
         }
@@ -994,6 +995,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
             select.appendChild(option);
           }  
         }
+        select.style.visibility = 'visible';
         
       });
     }
