@@ -1096,11 +1096,11 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
 	      for (var i = 0; i < x.options.length; i++) {
 	         if (x.options[i].selected ==true){
 	           if (count == 0) {
-	             ids = ids.concat('"',x.options[i].value,'"');
+	             ids = ids.concat(x.options[i].value);
 	           }
 	           else {
 	             ids = ",";
-	             ids = ids.concat('"',x.options[i].value,'"');
+	             ids = ids.concat(x.options[i].value);
 	           }
 	           count++;
 	         }
