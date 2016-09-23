@@ -2498,7 +2498,9 @@ if (typeof module !== undefined) module.exports = polyline;
           if(res.transit_info) {
             transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
           
-            if (_arraySearch(transitData,operator_onestop_id: res.transit_info.operator_onestop_id) == false)
+            var a = transitData.indexOf("operator_onestop_id: res.transit_info.operator_onestop_id");
+          
+            if (a == -1)
               transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
             transitData.push({route_onestop_id: res.transit_info.onestop_id})
                       
