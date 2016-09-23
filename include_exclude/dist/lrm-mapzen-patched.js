@@ -2489,12 +2489,13 @@ if (typeof module !== undefined) module.exports = polyline;
 
           var res = legs[i].maneuvers[j];          
           if(res.transit_info) {
-            transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
           
             var bfound = false;
             for(var k = 0; k < transitData.length; k++) {
-              if (transitData[k].operator_onestop_id === res.transit_info.operator_onestop_id)
+              if (transitData[k].operator_onestop_id === res.transit_info.operator_onestop_id){
                 bfound = true;
+                break;
+              }
             }
           
             if (bfound == false)
@@ -2503,6 +2504,15 @@ if (typeof module !== undefined) module.exports = polyline;
                       
           	for(var k = 0; k < res.transit_info.transit_stops.length; k++){
           	  var stop = res.transit_info.transit_stops[k];
+          	  
+          	  var bfound = false;
+              for(var l = 0; l < transitData.length; l++) {
+                if (transitData[l].stop_onestop_id === stop.onestop_id){
+                  bfound = true;
+                  break;
+                }
+              }
+          	  
               transitData.push({stop_onestop_id: stop.onestop_id})
             }
 	      }
