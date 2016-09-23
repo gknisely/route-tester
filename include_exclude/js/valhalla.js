@@ -1108,6 +1108,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
       	  ids = ids.concat(']');
       }
       
+      alert(ids);
 
 //"transit":{"filters":{"operators":{"ids":["o-dr5r-path"],"action":"none"}}}
       var transitoptions = "";
