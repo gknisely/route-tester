@@ -1096,7 +1096,6 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
 	      for (var i = 0; i < x.options.length; i++) {
 	         if (x.options[i].selected ==true){
 	           if (count == 0) {
-	             ids = "[";
 	             ids = ids.concat('"',x.options[i].value,'"');
 	           }
 	           else {
@@ -1106,7 +1105,6 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
 	           count++;
 	         }
 	      }
-      	  ids = ids.concat(']');
       }
       
       alert(ids);
@@ -1118,7 +1116,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         "transit" : {
           "filters" : { 
           "operators" : { 
-          ids : ids,
+          ids :[ids],
           action : op_filter
         }}}
       };
