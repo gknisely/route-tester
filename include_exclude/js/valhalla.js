@@ -1089,46 +1089,46 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
       }
       
       var stop_ids = [];
-      var count = 0;
+      var s_count = 0;
       if (s_filter != "nada") {
       	
 	      var x=document.getElementById("stops");
 	      for (var i = 0; i < x.options.length; i++) {
 	         if (x.options[i].selected ==true){
-	           stop_ids[count] = x.options[i].value;
-	           count++;
+	           stop_ids[s_count] = x.options[i].value;
+	           s_count++;
 	         }
 	      }
       }
       
       var route_ids = [];
-      var count = 0;
+      var r_count = 0;
       if (r_filter != "nada") {
       	
-	      var x=document.getElementById("stops");
+	      var x=document.getElementById("routes");
 	      for (var i = 0; i < x.options.length; i++) {
 	         if (x.options[i].selected ==true){
-	           route_ids[count] = x.options[i].value;
-	           count++;
+	           route_ids[r_count] = x.options[i].value;
+	           r_count++;
 	         }
 	      }
       }
       
       var operator_ids = [];
-      var count = 0;
+      var o_count = 0;
       if (o_filter != "nada") {
       	
-	      var x=document.getElementById("stops");
+	      var x=document.getElementById("operators");
 	      for (var i = 0; i < x.options.length; i++) {
 	         if (x.options[i].selected ==true){
-	           operator_ids[count] = x.options[i].value;
-	           count++;
+	           operator_ids[o_count] = x.options[i].value;
+	           o_count++;
 	         }
 	      }
       }
       
       var transitoptions = "";
-      if (count != 0) {
+      if (s_count != 0 || o_count != 0 || r_count != 0) {
       transitoptions = {
         "transit" : {
           "filters" : { 
