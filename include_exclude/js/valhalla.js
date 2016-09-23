@@ -1062,9 +1062,6 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
     }
     
     function setTransitOptions() {
-      var use_bus = document.getElementById("use_bus").value;
-      var use_rail = document.getElementById("use_rail").value;
-      var use_transfers = document.getElementById("use_transfers").value;
 
 	  var op_filter = "nada";
       var operator_filter = document.getElementsByName("operator_filter");
@@ -1089,16 +1086,40 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
           s_filter = stop_filter[i].value;
         }
       }
+      
+      var ids = "";
+      var count = 0;
+      if (op_filter != "nada") {
+      	
+	      var x=document.getElementById("operators");
+	      for (var i = 0; i < x.options.length; i++) {
+	         if (x.options[i].selected ==true){
+	           if (count == 0) {
+	             ids = "[";
+	             ids = ids.concat('"',x.options[i].value,'"');
+	           }
+	           else {
+	             ids = ",";
+	             ids = ids.concat('"',x.options[i].value,'"');
+	           }
+	         }
+	      }
+      	  ids = ids.concat(']');
+      }
+      
 
-//"transit":{"use_bus":"0.0","use_rail":"1.0","use_transfers":"1.0","filters":{"operators":{"ids":["o-dr5r-path"],"action":"none"}}}
+//"transit":{"filters":{"operators":{"ids":["o-dr5r-path"],"action":"none"}}}
 
+      if (count != 0) {
       var transitoptions = {
         "transit" : {
-          use_bus : use_bus,
-          use_rail : use_rail,
-          use_transfers : use_transfers
-        }
+          "filters" : { 
+          "operators" : { 
+          ids : ids,
+          action : op_filter
+        }}}
       };
+      }
       return transitoptions;
     }
     
