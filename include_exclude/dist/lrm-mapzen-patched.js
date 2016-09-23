@@ -2491,8 +2491,6 @@ if (typeof module !== undefined) module.exports = polyline;
           if(res.transit_info) {
             transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
           
-          
-          arrtransit.indexOf(route.subRoutes[i].travel_type)
             var bfound = false;
             //for(var i = 0; i < transitData.length; i++) {
               if (transitData.indexOf(res.transit_info.operator_onestop_id) > -1)
