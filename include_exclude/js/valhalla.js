@@ -995,9 +995,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
             select.appendChild(option);
           }  
         }
-        select.selectedIndex = -1;
-        select.style.visibility = 'visible';
-        
+        select.selectedIndex = -1;        
         select = document.getElementById('routes');
         
         for(var x = select.options.length - 1 ; x >= 0 ; x--) {
@@ -1012,9 +1010,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
             select.appendChild(option);
           }  
         }
-        select.selectedIndex = -1;
-        select.style.visibility = 'visible';
-        
+        select.selectedIndex = -1;        
         select = document.getElementById('stops');
         
         for(var x = select.options.length - 1 ; x >= 0 ; x--) {
@@ -1030,8 +1026,8 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
           }  
         }
         select.selectedIndex = -1;
-        select.style.visibility = 'visible';
-        
+        var one_stops = document.getElementById('one_stops');
+        one_stops.style.visibility = 'visible';
         
       });
     }
