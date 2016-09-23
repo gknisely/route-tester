@@ -138,17 +138,28 @@
     
           <br>      
           <button id="include_exclude_btn" style="visibility:hidden;" type=button"></button>
-          
-          <select id="routes" style="visibility:hidden;"></select>
-          <select id="stops" style="visibility:hidden;"></select>
           <br>
           
-          <div id="dtoptions" name="dtoptions">
+          <div id="one_stops" name="one_stops" style="visibility:hidden;">
 		  <form id="f_operators" name="f_operators" ><span style="color:black">
 			<h5><b>Operators</b></h5><p>
-			<select id="operators" style="visibility:hidden;"></select>
-			Include: <input type="radio" name="dttype" value="0"/>
-			Exclude: <input type="radio" name="dttype" value="1"/>
+			<select id="operators""></select>
+			Include: <input type="radio" name="operator_filter" value="0"/>
+			Exclude: <input type="radio" name="operator_filter" value="1"/>
+			<br>
+		  </form>
+		  <form id="f_routes" name="f_routes" ><span style="color:black">
+			<h5><b>Routes</b></h5><p>
+            <select id="routes"></select>
+			Include: <input type="radio" name="route_filter" value="0"/>
+			Exclude: <input type="radio" name="route_filter" value="1"/>
+			<br>
+		  </form>
+		  <form id="f_stops" name="f_stops" ><span style="color:black">
+			<h5><b>Stops</b></h5><p>
+            <select id="stops"></select>
+			Include: <input type="radio" name="stop_filter" value="0"/>
+			Exclude: <input type="radio" name="stop_filter" value="1"/>
 			<br>
 		  </form>
 	      </div>
