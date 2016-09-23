@@ -1357,7 +1357,7 @@ if (typeof module !== undefined) module.exports = polyline;
 			return L.DomUtil.create('tbody', '');
 		},
 
-		createStep: function(text, verbal_alert, depart_instr, verbal_depart, verbal_pre, verbal_post, arrive_instr, verbal_arrive, distance, icon, steps) {
+		createStep: function(text, verbal_alert, depart_instr, verbal_depart, verbal_pre, verbal_post, operator_ids, arrive_instr, verbal_arrive, distance, icon, steps) {
 		      var row = L.DomUtil.create('tr', '', steps),
 		        span,
 		        td,
@@ -1381,6 +1381,9 @@ if (typeof module !== undefined) module.exports = polyline;
 		        td.appendChild(ul);
 		        ul = L.DomUtil.create('ul', 'verbal_post', row);
 		        ul.appendChild(document.createTextNode(verbal_post));
+		        td.appendChild(ul);
+		        ul = L.DomUtil.create('ul', 'operator_ids', row);
+		        ul.appendChild(document.createTextNode(operator_ids));
 		        td.appendChild(ul);
 		        ul = L.DomUtil.create('ul', 'arrive_instr', row);
 		        ul.appendChild(document.createTextNode(arrive_instr));
