@@ -1223,6 +1223,7 @@ if (typeof module !== undefined) module.exports = polyline;
 			    instr,
 			    verbal_pre,
 			    verbal_post,
+			    operator_ids,
 			    arrive_instr,
 			    verbal_arrive,
 			    icon;
@@ -1238,6 +1239,7 @@ if (typeof module !== undefined) module.exports = polyline;
 			        verbal_depart = (typeof instr.verbal_depart_instruction != "undefined" ?  "VERBAL_DEPART: " + instr.verbal_depart_instruction : "");
 			        verbal_pre =  (typeof instr.verbal_pre_transition_instruction != "undefined" ? "VERBAL_PRE: " + instr.verbal_pre_transition_instruction : "");
 			        verbal_post = (typeof instr.verbal_post_transition_instruction != "undefined" ? "VERBAL_POST: " + instr.verbal_post_transition_instruction : "");
+			        operator_ids = (typeof instr.transit_info.operator_onestop_id != "undefined" ? instr.transit_info.operator_onestop_id : "");
 			        arrive_instr = (typeof instr.arrive_instruction != "undefined" ? instr.arrive_instruction : "");
 			        verbal_arrive = (typeof instr.verbal_arrive_instruction != "undefined" ?  "VERBAL_ARRIVE: " + instr.verbal_arrive_instruction : "");
 			        distance = this._formatter.formatDistance(instr.distance);
