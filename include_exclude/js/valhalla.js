@@ -1064,11 +1064,11 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
     
     function setTransitOptions() {
 
-	  var op_filter = "nada";
+	  var o_filter = "nada";
       var operator_filter = document.getElementsByName("operator_filter");
       for (var i = 0; i < operator_filter.length; i++) {
         if (operator_filter[i].checked) {
-          op_filter = operator_filter[i].value;
+          o_filter = operator_filter[i].value;
         }
       }
 
@@ -1088,29 +1088,60 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
         }
       }
       
-      var ids = [];
+      var stop_ids = [];
       var count = 0;
       if (s_filter != "nada") {
       	
 	      var x=document.getElementById("stops");
 	      for (var i = 0; i < x.options.length; i++) {
 	         if (x.options[i].selected ==true){
-	           ids[count] = x.options[i].value;
+	           stop_ids[count] = x.options[i].value;
 	           count++;
 	         }
 	      }
       }
       
-//"transit":{"filters":{"operators":{"ids":["o-dr5r-path"],"action":"none"}}}
+      var route_ids = [];
+      var count = 0;
+      if (r_filter != "nada") {
+      	
+	      var x=document.getElementById("stops");
+	      for (var i = 0; i < x.options.length; i++) {
+	         if (x.options[i].selected ==true){
+	           route_ids[count] = x.options[i].value;
+	           count++;
+	         }
+	      }
+      }
+      
+      var operator_ids = [];
+      var count = 0;
+      if (o_filter != "nada") {
+      	
+	      var x=document.getElementById("stops");
+	      for (var i = 0; i < x.options.length; i++) {
+	         if (x.options[i].selected ==true){
+	           operator_ids[count] = x.options[i].value;
+	           count++;
+	         }
+	      }
+      }
+      
       var transitoptions = "";
       if (count != 0) {
       transitoptions = {
         "transit" : {
           "filters" : { 
           "stops" : { 
-          ids : [ids.join("%22,%22")],
-          action : s_filter
-        }}}
+          ids : [stop_ids.join("%22,%22")],
+          action : s_filter},
+          "routes" : { 
+          ids : [route_ids.join("%22,%22")],
+          action : r_filter},
+          "operators" : { 
+          ids : [operator_ids.join("%22,%22")],
+          action : o_filter}
+        }}
       };
       }
       return transitoptions;
