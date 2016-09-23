@@ -1203,6 +1203,11 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
     Locations = [];
     document.getElementById('permalink').innerHTML = "";
     window.location.hash = "";
+    
+    document.getElementById('operators').options.length = 0;
+    document.getElementById('routes').options.length = 0;
+    document.getElementById('stops').options.length = 0;
+    
   }
 
   $("#showbtn").on("click", function() {
