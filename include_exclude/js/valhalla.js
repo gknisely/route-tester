@@ -1066,6 +1066,32 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
       var use_rail = document.getElementById("use_rail").value;
       var use_transfers = document.getElementById("use_transfers").value;
 
+	  var op_filter = "nada";
+      var operator_filter = document.getElementsByName("operator_filter");
+      for (var i = 0; i < operator_filter.length; i++) {
+        if (operator_filter[i].checked) {
+          op_filter = operator_filter[i].value;
+        }
+      }
+
+	  var r_filter = "nada";
+      var route_filter = document.getElementsByName("route_filter");
+      for (var i = 0; i < route_filter.length; i++) {
+        if (route_filter[i].checked) {
+          r_filter = route_filter[i].value;
+        }
+      }
+      
+      var s_filter = "nada";
+      var stop_filter = document.getElementsByName("stop_filter");
+      for (var i = 0; i < stop_filter.length; i++) {
+        if (stop_filter[i].checked) {
+          s_filter = stop_filter[i].value;
+        }
+      }
+
+//"transit":{"use_bus":"0.0","use_rail":"1.0","use_transfers":"1.0","filters":{"operators":{"ids":["o-dr5r-path"],"action":"none"}}}
+
       var transitoptions = {
         "transit" : {
           use_bus : use_bus,
@@ -1123,7 +1149,6 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
           value : dateStr.toString()
         };
       }
-      alert(datetimeoptions);
       return datetimeoptions;
     }
 
