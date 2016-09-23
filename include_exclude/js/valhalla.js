@@ -1103,6 +1103,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
 	             ids = ",";
 	             ids = ids.concat('"',x.options[i].value,'"');
 	           }
+	           count++;
 	         }
 	      }
       	  ids = ids.concat(']');
