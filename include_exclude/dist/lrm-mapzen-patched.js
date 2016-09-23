@@ -2492,10 +2492,10 @@ if (typeof module !== undefined) module.exports = polyline;
             transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
           
             var bfound = false;
-            //for(var i = 0; i < transitData.length; i++) {
-              if (transitData.indexOf({operator_onestop_id: res.transit_info.operator_onestop_id}) > -1)
+            for(var i = 0; i < transitData.length; i++) {
+              if (transitData[i].operator_onestop_id.indexOf(res.transit_info.operator_onestop_id) > -1)
                 bfound = true;
-            //}
+            }
           
             if (bfound == false)
               transitData.push({operator_onestop_id: res.transit_info.operator_onestop_id})
