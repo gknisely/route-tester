@@ -2,7 +2,7 @@ var app = angular.module('routing', []);
 var hash_params = L.Hash.parseHash(location.hash);
 var mode_mapping = {
   'foot'    : 'pedestrian',
-  'car'     : 'auto',
+  'car'     : 'hov',
   'bicycle' : 'bicycle',
   'transit' : 'multimodal',
   'truck'   : 'truck'  
@@ -820,7 +820,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
       driveBtn.addEventListener('click', function(e) {
         if (!rr) return;
         getEnvToken();
-        var costing = 'auto';
+        var costing = 'hov';
         var calendarInput = document.getElementById("datepicker").value;
         if (calendarInput != "") {
           dateStr = datetimeUpdate(calendarInput);
