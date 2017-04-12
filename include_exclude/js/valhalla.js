@@ -1114,7 +1114,11 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
 	         }
 	      }
       }
-      
+
+      var use_bus = document.getElementById("use_bus").value;
+      var use_rail = document.getElementById("use_rail").value;
+      var use_transfers = document.getElementById("use_transfers").value;      
+
       var operator_ids = [];
       var o_count = 0;
       if (o_filter != "nada") {
@@ -1132,6 +1136,9 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
       if (s_count != 0 || o_count != 0 || r_count != 0) {
       transitoptions = {
         "transit" : {
+          use_bus : use_bus,
+          use_rail : use_rail,
+          use_transfers : use_transfers,
           "filters" : { 
           "stops" : { 
           ids : [stop_ids.join("%22,%22")],
@@ -1143,6 +1150,14 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
           ids : [operator_ids.join("%22,%22")],
           action : o_filter}
         }}
+      };
+      } else {
+      transitoptions = {
+        "transit" : {
+          use_bus : use_bus,
+          use_rail : use_rail,
+          use_transfers : use_transfers
+        }
       };
       }
       return transitoptions;
