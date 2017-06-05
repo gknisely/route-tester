@@ -2,7 +2,7 @@ var app = angular.module('routing', []);
 var hash_params = L.Hash.parseHash(location.hash);
 var mode_mapping = {
   'foot'    : 'pedestrian',
-  'car'     : 'hov',
+  'car'     : 'bus',
   'bicycle' : 'bicycle',
   'transit' : 'multimodal',
   'truck'   : 'truck'  
