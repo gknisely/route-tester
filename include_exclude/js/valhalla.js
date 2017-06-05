@@ -821,7 +821,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
       driveBtn.addEventListener('click', function(e) {
         if (!rr) return;
         getEnvToken();
-        var costing = 'hov';
+        var costing = 'bus';
         var calendarInput = document.getElementById("datepicker").value;
         if (calendarInput != "") {
           dateStr = datetimeUpdate(calendarInput);
