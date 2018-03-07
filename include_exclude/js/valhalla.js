@@ -154,14 +154,14 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
   });*/
 
   var baseMaps = {
-    "Road" : road,
+    "Road" : road
    // "Cinnabar" : cinnabar,
    // "CrossHatch" : crossHatch,
-    "Outdoor" : outdoor,
+   // "Outdoor" : outdoor,
    // "Zinc" : zinc,
-    "Cycle" : cycle,
-    "Elevation" : elevation,
-    "Transit" : transit
+   // "Cycle" : cycle,
+   // "Elevation" : elevation,
+   // "Transit" : transit
   };
 
   var map = L.map('map', {
