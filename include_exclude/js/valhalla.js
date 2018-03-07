@@ -132,7 +132,7 @@ app.run(function($rootScope) {
 app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
   var road = L.tileLayer('http://b.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution : '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributers'
-  }),/*cinnabar = Tangram.leafletLayer({
+  });/*cinnabar = Tangram.leafletLayer({
     scene: 'https://raw.githubusercontent.com/tangrams/cinnabar-style-more-labels/gh-pages/cinnabar-style-more-labels.yaml',
     attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | <a href="http://www.openstreetmap.org/about" target="_blank">&copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
   }),crossHatch = Tangram.leafletLayer({
@@ -141,7 +141,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
   }),zinc = Tangram.leafletLayer({
     scene: 'https://mapzen.com/carto/zinc-style/2.0/zinc-style.yaml',
     attribution: '<a href="https://mapzen.com/tangram">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/">Mapzen</a>'
-  }), */outdoor = Tangram.leafletLayer({
+  }), outdoor = Tangram.leafletLayer({
     scene: 'https://raw.githubusercontent.com/kdiluca/route-tester/gh-pages/routing/out-doors.yaml',
     attribution: '<a href="https://mapzen.com/tangram">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/">Mapzen</a>'
   }), cycle = L.tileLayer('http://b.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
@@ -151,7 +151,7 @@ app.controller('RouteController', function($scope, $rootScope, $sce, $http) {
   }), transit = Tangram.leafletLayer({
     scene: 'https://raw.githubusercontent.com/valhalla/demos/gh-pages/routing/map_style/zinc-basemap.yaml',
     attribution: '<a href="https://mapzen.com/tangram">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/">Mapzen</a>'
-  });
+  });*/
 
   var baseMaps = {
     "Road" : road,
